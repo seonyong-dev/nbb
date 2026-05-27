@@ -1,0 +1,10 @@
+.container-fluid {
+    min-height: 100vh;
+}
+/* 모달 공통 스타일 */
+.modal-content-custom {
+    background-color: #000000;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    border-radius: 20px;
+}

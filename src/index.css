@@ -1,0 +1,8 @@
+/* 공통 규칙: 배경은 검정, 글씨는 하얀색 */
+body {
+    background-color: #000000;
+    color: #ffffff;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}

@@ -1,0 +1,26 @@
+.loginContainer {
+    width: 100%;
+    max-width: 350px;
+    padding: 40px 20px;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    text-align: center;
+}
+.logo { font-size: 3rem; font-weight: bold; margin-bottom: 30px; }
+.formControl {
+    background-color: transparent;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    border-radius: 0;
+    margin-bottom: 20px;
+}
+.btnLogin {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    width: 80%;
+    padding: 10px;
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+.btnLogin:hover { background-color: #ffffff; color: #000000; }

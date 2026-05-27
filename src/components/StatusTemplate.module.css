@@ -1,0 +1,13 @@
+.mainContent { padding: 40px; }
+.sectionTitle {
+    font-size: 1.5rem; border-bottom: 1px solid #ffffff;
+    display: inline-block; padding-bottom: 5px; margin-bottom: 25px;
+}
+.remittanceItem { font-size: 1.2rem; margin-bottom: 20px; display: flex; align-items: center; }
+.groupName { width: 150px; }
+.amount { width: 120px; text-align: right; margin-right: 1.5rem; }
+.btnSend {
+    border: 1px solid #ffffff; background: transparent; color: #ffffff;
+    padding: 3px 15px; border-radius: 5px;
+}
+.statusText { font-size: 1.1rem; text-decoration: underline; }

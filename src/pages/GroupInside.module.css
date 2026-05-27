@@ -1,0 +1,20 @@
+.settlementCard {
+    border: 2px solid #ffffff; border-radius: 30px;
+    padding: 40px; text-align: center; margin: 50px auto 20px auto;
+    max-width: 400px;
+}
+.kakaoPayBtn {
+    border: 1px solid #ffffff; background: transparent; color: #ffffff;
+    border-radius: 20px; padding: 5px 20px; margin-top: 10px;
+}
+.memberSidebar { border-left: 2px solid #ffffff; height: 100vh; padding: 30px; }
+.memberTitle { font-size: 1.5rem; border-bottom: 1px solid #ffffff; margin-bottom: 20px; padding-bottom: 5px; }
+.btnRegFloat {
+    border: 2px solid #ffffff; background: transparent; color: #ffffff;
+    border-radius: 30px; padding: 10px 30px; display: block; margin: 30px auto;
+}
+.scrollArea {
+    height: calc(100vh - 250px); overflow-y: auto; padding-right: 15px;
+}
+.scrollArea::-webkit-scrollbar { width: 6px; }
+.scrollArea::-webkit-scrollbar-thumb { background: #ffffff; border-radius: 10px; }
