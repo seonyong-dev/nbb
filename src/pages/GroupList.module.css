@@ -1,17 +1,47 @@
-.mainContent { padding: 30px; position: relative; }
+.mainContent {
+  padding: 30px;
+  position: relative;
+}
 .btnGroupCreate {
-    border: 1px solid #ffffff; color: #ffffff; background: transparent;
-    padding: 5px 15px; position: absolute; top: 30px; right: 30px;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  background: transparent;
+  padding: 5px 15px;
+  position: absolute;
+  top: 30px;
+  right: 30px;
 }
 .sectionTitle {
-    font-size: 1.5rem; border-bottom: 1px solid #ffffff;
-    display: inline-block; padding-bottom: 5px; margin-bottom: 20px;
+  font-size: 1.5rem;
+  border-bottom: 1px solid #ffffff;
+  display: inline-block;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
 }
-.groupItem { font-size: 1.2rem; margin-bottom: 10px; cursor: pointer; }
-.paginationCustom { display: flex; gap: 15px; margin-bottom: 40px; }
-.searchContainer { position: relative; }
-.searchIcon { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); }
+.groupItem {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.paginationCustom {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 40px;
+  justify-content: center;
+}
+.searchContainer {
+  position: relative;
+}
+.searchIcon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
 .btnCreateSubmit {
-    background-color: transparent; color: #ffffff; border: 1px solid #ffffff;
-    width: 100%; padding: 10px;
+  background-color: transparent;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  width: 100%;
+  padding: 10px;
 }

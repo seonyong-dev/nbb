@@ -32,7 +32,8 @@ function App() {
         {/* 3. 사이드바를 공유하는 페이지들을 그룹으로 묶음 */}
         <Route element={<SidebarLayout />}>
           <Route path="/group-list" element={<GroupList />} />
-          <Route path="/SettlementStatusPage" element={<SettlementStatusPage />} /> {/* StatusTemplate 으로 수정해야함 */}
+          {/* SettlementStatusPage-> StatusTemplate 으로 수정해야함 */}
+          <Route path="/SettlementStatusPage" element={<SettlementStatusPage />} />
           <Route path="/group-inside" element={<GroupInside />} />
         </Route>
       </Routes>
