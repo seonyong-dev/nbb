@@ -1,20 +1,100 @@
+/* 중앙 정산 정보 카드 */
 .settlementCard {
-    border: 2px solid #ffffff; border-radius: 30px;
-    padding: 40px; text-align: center; margin: 50px auto 20px auto;
-    max-width: 400px;
+  border: 2px solid #ffffff;
+  border-radius: 30px;
+  padding: 40px;
+  text-align: center;
+  margin-top: 50px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
 }
+
 .kakaoPayBtn {
-    border: 1px solid #ffffff; background: transparent; color: #ffffff;
-    border-radius: 20px; padding: 5px 20px; margin-top: 10px;
+  border: 1px solid #ffffff;
+  background: transparent;
+  color: #ffffff;
+  border-radius: 20px;
+  padding: 5px 20px;
+  margin-top: 10px;
 }
-.memberSidebar { border-left: 2px solid #ffffff; height: 100vh; padding: 30px; }
-.memberTitle { font-size: 1.5rem; border-bottom: 1px solid #ffffff; margin-bottom: 20px; padding-bottom: 5px; }
+
+/* 우측 멤버 현황 */
+.memberSidebar {
+  border-left: 2px solid #ffffff;
+  height: 100vh;
+  padding: 30px;
+}
+
+.memberTitle {
+  font-size: 1.5rem;
+  border-bottom: 1px solid #ffffff;
+  margin-bottom: 20px;
+  padding-bottom: 5px;
+}
+
+.memberList {
+  list-style: none;
+  padding: 0;
+  font-size: 1.2rem;
+}
+
+.memberItem {
+  margin-bottom: 15px;
+}
+
+.btnSide {
+  border: 1px solid #ffffff;
+  background: transparent;
+  color: #ffffff;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* 정산등록 버튼 */
 .btnRegFloat {
-    border: 2px solid #ffffff; background: transparent; color: #ffffff;
-    border-radius: 30px; padding: 10px 30px; display: block; margin: 30px auto;
+  border: 2px solid #ffffff;
+  background: transparent;
+  color: #ffffff;
+  border-radius: 30px;
+  padding: 10px 30px;
+  font-size: 1.2rem;
+  display: block;
+  margin: 30px auto;
 }
+
+/* 중앙 영역 내부 스크롤 설정 */
 .scrollArea {
-    height: calc(100vh - 250px); overflow-y: auto; padding-right: 15px;
+  height: calc(100vh - 250px);
+  overflow-y: auto;
+  padding-right: 15px;
 }
-.scrollArea::-webkit-scrollbar { width: 6px; }
-.scrollArea::-webkit-scrollbar-thumb { background: #ffffff; border-radius: 10px; }
+
+/* 스크롤바 디자인 */
+.scrollArea::-webkit-scrollbar {
+  width: 6px;
+}
+.scrollArea::-webkit-scrollbar-track {
+  background: #000000;
+}
+.scrollArea::-webkit-scrollbar-thumb {
+  background: #ffffff;
+  border-radius: 10px;
+}
+
+/* 모달 커스텀 인풋 */
+.modalInput {
+  background: transparent !important;
+  color: white !important;
+  border: 1px solid white !important;
+  border-radius: 0 !important;
+}
+
+.modalSelect {
+  width: auto;
+  background: transparent !important;
+  color: white !important;
+  border: 1px solid white !important;
+}
