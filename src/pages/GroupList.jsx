@@ -6,7 +6,7 @@ const GroupList = () => {
   const navigate = useNavigate();
   return (
     <>
-      <div className={`col-md-9 ${styles.mainContent}`}>
+      <div className={`col-md-9 ${styles.mainContent}`} style={{ width: '100%' }}>
         <button
           className={styles.btnGroupCreate}
           data-bs-toggle="modal"
