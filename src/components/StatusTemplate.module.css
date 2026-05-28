@@ -15,15 +15,15 @@
   align-items: center;
 }
 .settlementDate {
-  width: 150px;
+  width: 20%;
 }
 .groupName {
-  width: 150px;
+  width: 20%;
 }
 .amount {
-  width: 150px;
+  width: 40%;
   text-align: right;
-  margin-right: 9rem;
+  margin-right: 3rem;
 }
 .btnMove {
   border: 1px solid #ffffff;
@@ -34,4 +34,24 @@
 }
 .statusText {
   font-size: 1.1rem;
+}
+.ModalRemittanceItem {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.ModalSettlementDate {
+  width: 25%;
+}
+.ModalGroupName {
+  width: 25%;
+}
+.ModalAmount {
+  width: 25%;
+  text-align: right;
+}
+.ModalStatusText {
+  width: 25%;
 }
