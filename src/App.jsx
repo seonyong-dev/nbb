@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom';
 import './App.css';
-import Sidebar from './components/Sidebar';
-import Login from './pages/Login';
-import GroupList from './pages/GroupList';
-import Paid from './pages/PaidStatusPage';
-import Settlement from './pages/SettlementStatusPage';
-import GroupInside from './pages/GroupInside';
+import Sidebar from './components/Sidebar.jsx';
+import Login from './pages/Login.jsx';
+import GroupList from './pages/GroupList.jsx';
+import Paid from './pages/PaidStatusPage.jsx';
+import Settlement from './pages/SettlementStatusPage.jsx';
+import GroupInside from './pages/GroupInside.jsx';
 
 const SidebarLayout = () => {
   return (
@@ -32,8 +32,8 @@ function App() {
         {/* 사이드바를 공유하는 페이지 */}
         <Route element={<SidebarLayout />}>
           <Route path="/group-list" element={<GroupList />} />
-          <Route path="/Paid" element={<Paid />} />
-          <Route path="/Settlement" element={<Settlement />} />
+          <Route path="/paid" element={<Paid />} />
+          <Route path="/settlement" element={<Settlement />} />
           <Route path="/group-inside" element={<GroupInside />} />
         </Route>
       </Routes>
