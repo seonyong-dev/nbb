@@ -1,0 +1,20 @@
+.ModalRemittanceItem {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.ModalSettlementDate {
+  width: 25%;
+}
+.ModalGroupName {
+  width: 25%;
+}
+.ModalAmount {
+  width: 25%;
+  text-align: right;
+}
+.ModalStatusText {
+  width: 25%;
+}

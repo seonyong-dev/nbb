@@ -1,93 +1,54 @@
-import React from 'react';
-import styles from '../components/StatusTemplate.module.css';
+import React, { useState } from 'react';
+import Template from '../components/StatusTemplate.jsx';
+import PaidStatusModal from './PaidStatusModal.jsx';
 
-{
-  /* 정산현황 버튼 (모달 연결) */
-}
-const ModalButton = ({ children, targetId = 'regSettlementModal' }) => (
-  <button
-    className={styles.btnMove}
-    data-bs-toggle="modal"
-    data-bs-target={`#${targetId}`}
-  >
-    {children}
-  </button>
-);
+// <ModalButton>정산현황</ModalButton>
+const PaidStatusPage = () => {
+  // 현재 모달에 띄울 데이터를 저장하는 상태(State)
+  const [showModalData, setShowModalData] = useState(null);
 
-const paid = () => {
+  // 모달이 열려있는지 닫혀있는지 관리하는 상태
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // 리스트에서 특정 항목의 [이동] 버튼을 눌렀을 때 실행될 함수
+  const handleOpenModal = (id) => {
+    const modalData = {
+      date: '5/29',
+      groupName: 'temp',
+      amount: '20,000원',
+      statusText: '정산완료',
+    };
+    setShowModalData(modalData);
+    setIsModalOpen(true);
+  };
+
   return (
-    <div className={`col-md-9 ${styles.mainContent}`} style={{ width: '100%' }}>
-      <h3 className="mb-5">〈정산현황〉</h3>
-      <div className="mb-5">
-        <div className={styles.sectionTitle}>미완료 정산</div>
-        <div className={styles.remittanceItem}>
-          <div className={styles.settlementDate}>5/25</div>
-          <div className={styles.groupName}>OO의 그룹</div>
-          <div className={styles.amount}>20,000/100,000원</div>
-          <ModalButton>정산현황</ModalButton>
-        </div>
-        <div className={styles.remittanceItem}>
-          <div className={styles.settlementDate}>5/25</div>
-          <div className={styles.groupName}>△△의 그룹</div>
-          <div className={styles.amount}>10,000/50,000원</div>
-          <ModalButton>정산현황</ModalButton>
-        </div>
-      </div>
-      <div className="mb-5">
-        <div className={styles.sectionTitle}>완료된 정산</div>
-        <div className={styles.remittanceItem}>
-          <div className={styles.settlementDate}>5/25</div>
-          <div className={styles.groupName}>OO의 그룹</div>
-          <div className={styles.amount}>100,000원</div>
-          <ModalButton>정산완료</ModalButton>
-        </div>
-        <div className={styles.remittanceItem}>
-          <div className={styles.settlementDate}>5/25</div>
-          <div className={styles.groupName}>△△의 그룹</div>
-          <div className={styles.amount}>50,000원</div>
-          <ModalButton>정산완료</ModalButton>
-        </div>
-      </div>
-
-      {/* 정산등록 모달 팝업 */}
-      <div
-        className="modal fade"
-        id="regSettlementModal"
-        tabIndex="-1"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog modal-dialog-centered">
-          <div className="modal-content modal-content-custom">
-            <div className="modal-header border-0">
-              <h5 className="modal-title w-100 text-center">〈정산현황〉</h5>
-              <button
-                type="button"
-                className="btn-close btn-close-white"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div className={styles.ModalRemittanceItem}>
-              <div className={styles.ModalSettlementDate}>5/25</div>
-              <div className={styles.ModalGroupName}>ㅇㅇㅇ</div>
-              <div className={styles.ModalAmount} style={{ marginRight: '1.5rem' }}>
-                20,000원
-              </div>
-              <div className={styles.ModalStatusText}>정산완료</div>
-            </div>
-
-            <div className={styles.ModalRemittanceItem}>
-              <div className={styles.ModalSettlementDate}></div>
-              <div className={styles.ModalGroupName}>ㅇㅇㅇ</div>
-              <div className={styles.ModalAmount} style={{ marginRight: '1.5rem' }}>
-                10,000원
-              </div>
-              <div className={styles.ModalStatusText}>미송금</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <>
+      <Template
+        title="<정산현황>"
+        sectionOne="미완료 정산"
+        oneData={{
+          date: '5/24',
+          groupName: 'A그룹',
+          amount: '20,000/100,000원',
+          commonBtn: '정산현황',
+        }}
+        sectionTwo="완료된 정산"
+        twoData={{
+          date: '5/25',
+          groupName: 'B그룹',
+          amount: '100,000원',
+          commonBtn: '정산완료',
+        }}
+        onBtnClick={handleOpenModal}
+      />
+      {isModalOpen && (
+        <PaidStatusModal
+          modalData={showModalData}
+          onClose={() => setIsModalOpen(false)}
+        />
+      )}
+    </>
   );
 };
-export default paid;
+export default PaidStatusPage;
