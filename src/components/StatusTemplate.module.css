@@ -1,5 +1,6 @@
 .mainContent {
   padding: 40px;
+  width: 100%;
 }
 .sectionTitle {
   font-size: 1.5rem;
@@ -25,7 +26,7 @@
   text-align: right;
   margin-right: 3rem;
 }
-.btnMove {
+.commonBtn {
   border: 1px solid #ffffff;
   background: transparent;
   color: #ffffff;
@@ -34,24 +35,4 @@
 }
 .statusText {
   font-size: 1.1rem;
-}
-.ModalRemittanceItem {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-}
-.ModalSettlementDate {
-  width: 25%;
-}
-.ModalGroupName {
-  width: 25%;
-}
-.ModalAmount {
-  width: 25%;
-  text-align: right;
-}
-.ModalStatusText {
-  width: 25%;
 }
