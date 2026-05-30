@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom';
+import Sidebar from '@/components/Sidebar/Sidebar.jsx';
+import Login from '@/pages/Login/Login.jsx';
+import GroupList from '@/pages/GroupList/GroupList.jsx';
+import Paid from '@/pages/StatusPage/Paid/PaidStatusPage.jsx';
+import Settlement from '@/pages/StatusPage/SettlementStatusPage.jsx';
+import GroupInside from '@/pages/GroupInside/GroupInside.jsx';
 import './App.css';
-import Sidebar from './components/Sidebar.jsx';
-import Login from './pages/Login.jsx';
-import GroupList from './pages/GroupList.jsx';
-import Paid from './pages/PaidStatusPage.jsx';
-import Settlement from './pages/SettlementStatusPage.jsx';
-import GroupInside from './pages/GroupInside.jsx';
 
 const SidebarLayout = () => {
   return (

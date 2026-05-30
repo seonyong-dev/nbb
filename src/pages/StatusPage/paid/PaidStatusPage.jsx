@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Template from '../components/StatusTemplate.jsx';
-import PaidStatusModal from './PaidStatusModal.jsx';
+import Template from '@/components/StatusTemplate/StatusTemplate.jsx';
+import PaidStatusModal from './Modal/PaidStatusModal.jsx';
 
 // <ModalButton>정산현황</ModalButton>
 const PaidStatusPage = () => {

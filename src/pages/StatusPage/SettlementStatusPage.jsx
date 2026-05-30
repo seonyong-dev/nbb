@@ -1,5 +1,5 @@
 import React from 'react';
-import Template from '../components/StatusTemplate.jsx';
+import Template from '@/components/StatusTemplate/StatusTemplate.jsx';
 import { useNavigate } from 'react-router-dom';
 
 const SettlementStatusPage = () => {
