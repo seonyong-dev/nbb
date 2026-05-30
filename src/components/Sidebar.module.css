@@ -1,0 +1,29 @@
+.sidebarStyle {
+  border-right: 2px solid #ffffff;
+  height: 100vh;
+  padding: 30px;
+  position: sticky;
+  top: 0;
+}
+
+.listItemStyle {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.userInfo {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+.logoutLink {
+  font-size: 0.9rem;
+  margin-bottom: 40px;
+  cursor: pointer;
+}
+
+.menuList {
+  padding: 0;
+}
