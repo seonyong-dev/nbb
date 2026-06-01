@@ -1,0 +1,16 @@
+.searchContainer {
+  position: relative;
+}
+.searchIcon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.btnCreateSubmit {
+  background-color: transparent;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  width: 100%;
+  padding: 10px;
+}

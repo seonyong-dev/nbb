@@ -1,26 +1,11 @@
 import React, { useState } from 'react';
 import Template from '@/components/StatusTemplate/StatusTemplate.jsx';
 import PaidStatusModal from './Modal/PaidStatusModal.jsx';
+import { useModal } from '@/hooks/useModal.js';
 
 // <ModalButton>정산현황</ModalButton>
 const PaidStatusPage = () => {
-  // 현재 모달에 띄울 데이터를 저장하는 상태(State)
-  const [showModalData, setShowModalData] = useState(null);
-
-  // 모달이 열려있는지 닫혀있는지 관리하는 상태
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  // 리스트에서 특정 항목의 [이동] 버튼을 눌렀을 때 실행될 함수
-  const handleOpenModal = (id) => {
-    const modalData = {
-      date: '5/29',
-      groupName: 'temp',
-      amount: '20,000원',
-      statusText: '정산완료',
-    };
-    setShowModalData(modalData);
-    setIsModalOpen(true);
-  };
+  const { modalClose } = useModal();
 
   return (
     <>
@@ -43,10 +28,7 @@ const PaidStatusPage = () => {
         onBtnClick={handleOpenModal}
       />
       {isModalOpen && (
-        <PaidStatusModal
-          modalData={showModalData}
-          onClose={() => setIsModalOpen(false)}
-        />
+        <PaidStatusModal modalData={showModalData} onClose={() => modalClose} />
       )}
     </>
   );
