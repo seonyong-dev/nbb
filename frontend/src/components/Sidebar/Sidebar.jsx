@@ -1,10 +1,9 @@
 import React from 'react';
+import { useSidebar } from '@/hooks/useSidabar';
 import styles from './Sidebar.module.css';
-import { useNavigate } from 'react-router-dom';
 
 const Sidebar = () => {
-  const navigate = useNavigate();
-
+  const { navigate } = useSidebar();
   return (
     <div className={`col-md-3 col-lg-2 sidebar ${styles.sidebarStyle}`}>
       <div
