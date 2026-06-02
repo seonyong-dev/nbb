@@ -20,7 +20,7 @@ export function useGroupInside() {
   useEffect(() => {
     (setReceiptList(receiptMockData), []);
     (setMemberList(memberMockData), []);
-  });
+  }, []);
 
   return { receiptList, memberList };
 }
