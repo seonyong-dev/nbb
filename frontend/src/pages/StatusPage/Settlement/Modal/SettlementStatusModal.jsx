@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './PaidStatusModal.module.css';
+import styles from './SettlementStatusModal.module.css';
 
-const PaidStatusModal = ({ modalData, onClose }) => (
+const SettlementStatusModal = ({ modalData, onClose }) => (
   <div
     className="modal show"
     style={{ display: 'block', backgroundColor: 'rgba(0,0,0,0.5)' }}
@@ -34,4 +34,4 @@ const PaidStatusModal = ({ modalData, onClose }) => (
   </div>
 );
 
-export default PaidStatusModal;
+export default SettlementStatusModal;
