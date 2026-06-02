@@ -14,8 +14,8 @@ export function useModal() {
     statusText: '정산완료',
   });
 
-  const showModal = (id) => {
-    setSetModalData(loadModalData);
+  const showModal = () => {
+    setModalData(loadModalData);
     setIsModalOpen(true);
   };
 
@@ -23,5 +23,5 @@ export function useModal() {
     setIsModalOpen(false);
   }
 
-  return { isModalOpen, modalClose, showModal };
+  return { isModalOpen, modalClose, modalData, showModal };
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './GroupListModal.module.css';
 
-const GroupListModal = (onClose) => {
+const GroupListModal = ({ onClose }) => {
   return (
     <div
       className="modal show"
@@ -16,6 +16,7 @@ const GroupListModal = (onClose) => {
               type="button"
               className="btn-close btn-close-white"
               onClick={onClose}
+              aria-label="Close"
             ></button>
           </div>
           <div className="modal-body">

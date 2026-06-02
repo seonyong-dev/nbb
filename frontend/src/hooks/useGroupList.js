@@ -1,10 +1,22 @@
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export function useGroupList() {
   const navigate = useNavigate();
 
-  const [list, setList] = useState([]);
+  const [groupList, setGroupList] = useState([]);
 
-  return { navigate, list };
+  const mockData = {
+    name: 'nbb의 그룹',
+  };
+
+  useEffect(() => {
+    setGroupList(mockData);
+  }, []);
+
+  const handleGroupList = (newGroup) => {
+    setGroupList((prevList) => [...prevList, { name: newGroup }]);
+  };
+
+  return { navigate, groupList };
 }
