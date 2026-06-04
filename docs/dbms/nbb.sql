@@ -1,11 +1,11 @@
 ﻿	DROP TABLE IF EXISTS users CASCADE;
 	CREATE TABLE users (
-		id				UUID			DEFAULT gen_random_uuid(),
+		id				UUID			DEFAULT gen_random_uuid() NOT NULL,
 		login_id		TEXT			NOT NULL	UNIQUE,
 		password		TEXT			NOT NULL,
 		nickname		TEXT			NOT NULL,
 		create_at		TIMESTAMPTZ		DEFAULT now()	NOT NULL,
-		is_withdrawn	BOOLEAN			DEFAULT FALSE	NULL,
+		is_withdrawn	BOOLEAN			DEFAULT FALSE	NOT NULL,
 		withdrawn_at	TIMESTAMPTZ		NULL,
 		CONSTRAINT pk_users PRIMARY KEY (id)
 	);
@@ -21,7 +21,7 @@
 
 	DROP TABLE IF EXISTS groups CASCADE;
 	CREATE TABLE groups (
-		id				UUID			DEFAULT gen_random_uuid(),
+		id				UUID			DEFAULT gen_random_uuid() NOT NULL,
 		creator_user_id	UUID			NOT NULL,
 		group_name		TEXT			NOT NULL,
 		create_at		TIMESTAMPTZ		DEFAULT now()	NOT NULL,
@@ -112,7 +112,7 @@
 
 	DROP TABLE IF EXISTS accounts CASCADE;
 	CREATE TABLE accounts (
-		id				UUID			DEFAULT gen_random_uuid(),
+		id				UUID			DEFAULT gen_random_uuid() NOT NULL,
 		user_id			UUID			NOT NULL,
 		account_number	TEXT			NOT NULL,
 		current_balance	DECIMAL(20,4)	DEFAULT 0		NOT NULL,
