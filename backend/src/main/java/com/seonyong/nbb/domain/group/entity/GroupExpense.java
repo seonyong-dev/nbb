@@ -1,6 +1,7 @@
 package com.seonyong.nbb.domain.group.entity;
 
-import com.seonyong.nbb.domain.auth.entity.User;
+import java.math.BigDecimal;
+import java.time.OffsetDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -23,7 +24,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 @Builder
-public class GroupMember {
+public class GroupExpense {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,15 +32,15 @@ public class GroupMember {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "member_user_id", nullable = false)
-    private User memberUserId;
+    @JoinColumn(name = "mgr_member_id", nullable = false)
+    private Long mgrMemberId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "group_id", nullable = false)
-    private Group groupId;
-
-    @Builder.Default
     @Column(nullable = false)
-    private String role = "01"; // 일반:01, 총무:02
+    private String title;
 
+    @Column(name = "total_amount", nullable = false, precision = 20, scale = 4)
+    private BigDecimal totalAmount;
+
+    @Column(name = "tx_at", nullable = false, updatable = false)
+    private OffsetDateTime txAt;
 }
