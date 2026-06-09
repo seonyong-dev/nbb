@@ -11,8 +11,8 @@ import com.seonyong.nbb.domain.group.entity.GroupMember;
 @Repository
 public interface GroupMemberRepository extends JpaRepository<GroupMember, Long> {
 
-    // 유저가 총무이거나 참가하고 있는 그룹리스트
-    List<GroupMember> findByMemberUserIdAndRole(UUID memberUserId, String role);
+    // 로그인 한 유저와 관련된 그룹리스트
+    List<GroupMember> findByMemberUserId(UUID id);
 
     // 같은 그룹 멤버리스트
     List<GroupMember> findByGroupId(UUID groupId);

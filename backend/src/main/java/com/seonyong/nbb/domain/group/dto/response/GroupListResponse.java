@@ -1,15 +1,16 @@
 package com.seonyong.nbb.domain.group.dto.response;
 
-import lombok.Getter;
-import lombok.AllArgsConstructor;
-
 import java.util.List;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
 public class GroupListResponse {
     
-    private List<GroupInfo> groups;
+    private List<GroupInfo> mgrGroups; // 총무인 그룹리스트
+    private List<GroupInfo> memberGroups; // 참가 중인 그룹리스트
 
     
     @Getter
