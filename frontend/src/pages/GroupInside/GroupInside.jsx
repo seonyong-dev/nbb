@@ -1,9 +1,8 @@
 import React from 'react';
-import { useGroupInside } from '@/hooks/useGroupInside';
-import { useModal } from '@/hooks/useModal';
-import GroupInsideModal from './Modal/GroupInsideModal';
+import { useGroupInside } from '@/hooks/useGroupInside.js';
+import { useModal } from '@/hooks/useModal.js';
+import GroupInsideModal from './Modal/GroupInsideModal.jsx';
 import styles from './GroupInside.module.css';
-import GroupListModal from '../GroupList/Modal/GroupListModal';
 
 const GroupInside = () => {
   const { receiptList, memberList } = useGroupInside();
@@ -27,7 +26,7 @@ const GroupInside = () => {
             </div>
             <div className="mb-1">참가멤버</div>
             <div className="mb-3" style={{ fontSize: '1.3rem' }}>
-              {receiptList.join}
+              {receiptList.member}
             </div>
             <div className="mb-1">송금해야 할 금액</div>
             <div
@@ -53,7 +52,7 @@ const GroupInside = () => {
         </button>
       </div>
 
-      {isModalOpen && <GroupListModal onClose={modalClose} />}
+      {isModalOpen && <GroupInsideModal onClose={modalClose} />}
 
       {/* 오른쪽 멤버 현황 */}
       <div className={`col-md-3 ${styles.memberSidebar} ms-auto`}>

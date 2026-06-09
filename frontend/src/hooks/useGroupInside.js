@@ -9,7 +9,7 @@ export function useGroupInside() {
   const receiptMockData = {
     title: '6/1 번개모임',
     expense: '100,000원',
-    join: '5명',
+    member: '5명',
     amount: '20,000원',
   };
 
@@ -18,8 +18,8 @@ export function useGroupInside() {
   };
 
   useEffect(() => {
-    (setReceiptList(receiptMockData), []);
-    (setMemberList(memberMockData), []);
+    setReceiptList(receiptMockData);
+    setMemberList(memberMockData);
   }, []);
 
   return { receiptList, memberList };

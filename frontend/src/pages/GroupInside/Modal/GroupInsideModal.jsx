@@ -1,9 +1,13 @@
 import React from 'react';
 import styles from './GroupInsideModal.module.css';
 
-const GroupInsideModal = (onClose) => {
+const GroupInsideModal = ({ onClose }) => {
   return (
-    <div className="modal fade" id="regSettlementModal" tabIndex="-1" aria-hidden="true">
+    <div
+      className="modal show"
+      style={{ display: 'block', backgroundColor: 'rgba(0,0,0,0.5)' }}
+      tabIndex="-1"
+    >
       <div className="modal-dialog modal-dialog-centered">
         <div className="modal-content modal-content-custom">
           <div className="modal-header border-0">
@@ -25,9 +29,11 @@ const GroupInsideModal = (onClose) => {
               <div className="mb-4">
                 <div className="d-flex justify-content-between align-items-center mb-2">
                   <label className="form-label mb-0">정산할 금액</label>
+                  {/* 추후 확장 기능
                   <select className={`form-select form-select-sm ${styles.modalSelect}`}>
                     <option>통화종류</option>
                   </select>
+                  */}
                 </div>
                 <input type="text" className={`form-control ${styles.modalInput}`} />
               </div>
