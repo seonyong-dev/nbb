@@ -15,7 +15,7 @@ public interface GroupExpenseRepository extends JpaRepository<GroupExpense, Long
     
     // 그룹 내 정산내역들
     @Query("SELECT e FROM GroupExpense e " +
-            "JOIN e.mgrMemberId m " +
-            "WHERE m.groupId.id = :groupId ")
+           "JOIN e.mgrMemberId m " +
+           "WHERE m.groupId.id = :groupId ")
     List<GroupExpense> findByGroupId(@Param("groupId")UUID groupId);
 }

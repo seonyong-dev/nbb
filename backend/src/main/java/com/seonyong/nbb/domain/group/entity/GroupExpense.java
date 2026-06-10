@@ -33,7 +33,7 @@ public class GroupExpense {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "mgr_member_id", nullable = false)
-    private Long mgrMemberId;
+    private GroupMember mgrMemberId;
 
     @Column(nullable = false)
     private String title;
