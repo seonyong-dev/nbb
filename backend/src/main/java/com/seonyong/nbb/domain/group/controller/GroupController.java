@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.seonyong.nbb.domain.group.dto.request.ExpenseCreateRequest;
 import com.seonyong.nbb.domain.group.dto.request.GroupCreateRequest;
+import com.seonyong.nbb.domain.group.dto.response.ExpenseListResponse;
 import com.seonyong.nbb.domain.group.dto.response.GroupListResponse;
+import com.seonyong.nbb.domain.group.dto.response.MemberListResponse;
 import com.seonyong.nbb.domain.group.service.GroupService;
 import com.seonyong.nbb.global.common.SessionConst;
 
@@ -94,5 +96,17 @@ public class GroupController {
         groupService.createExpense(createRequest, loginUserId, groupId);
 
         return ResponseEntity.ok("정산 등록이 완료되었습니다.");
+    }
+
+    // 정산 리스트 불러오기
+    @GetMapping("/{groupId}/expenses")
+    public ExpenseListResponse expenseList(@PathVariable UUID groupId) {
+        return groupService.expenseList(groupId);
+    }
+
+    // 그룹 내 멤버리스트 불러오기
+    @GetMapping("/{groupId}/members")
+    public MemberListResponse memberList(@PathVariable UUID groupId) {
+        return groupService.memberList(groupId);
     }
 }

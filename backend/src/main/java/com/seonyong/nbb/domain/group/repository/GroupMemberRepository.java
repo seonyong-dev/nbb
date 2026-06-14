@@ -23,5 +23,6 @@ public interface GroupMemberRepository extends JpaRepository<GroupMember, Long> 
            "WHERE m.groupId = :groupId")
     List<GroupMember> findByGroupId(@Param("groupId")UUID groupId);
 
+    // 그룹멤버인지 확인
     Optional<GroupMember> findByMemberUserIdANDGroupId(UUID iD, UUID groupId);
 }
