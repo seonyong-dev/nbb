@@ -3,6 +3,7 @@ package com.seonyong.nbb.domain.auth.controller;
 import com.seonyong.nbb.domain.auth.dto.request.LoginRequest;
 import com.seonyong.nbb.domain.auth.dto.response.LoginResponse;
 import com.seonyong.nbb.domain.auth.service.AuthService;
+import com.seonyong.nbb.global.common.SessionConst;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -19,8 +20,6 @@ public class AuthController {
     
     private final AuthService authService;
 
-    public final String LOGIN_USER = "LOGIN_USER_ID";
-
     // 로그인
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest, HttpServletRequest request) {
@@ -34,7 +33,7 @@ public class AuthController {
 
         // 로그인 기록 세션 저장
         HttpSession session = request.getSession();
-        session.setAttribute(LOGIN_USER, user.getId());
+        session.setAttribute(SessionConst.LOGIN_USER, user.getId());
 
         // 화면에 전송 할 데이터
         LoginResponse response = new LoginResponse(user.getId(), user.getNickname());
