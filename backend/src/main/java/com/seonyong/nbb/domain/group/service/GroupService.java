@@ -121,7 +121,7 @@ public class GroupService {
         
         // 총무인지 확인
         if (groupMember.getRole() != "02") { 
-            throw new IllegalStateException("총무만 정산을 등록할 수 있습니다!");
+            throw new IllegalStateException("총무만 정산을 등록할 수 있습니다.");
         }
 
         // 정산 등록
