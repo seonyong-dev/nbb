@@ -16,11 +16,11 @@ public class AuthService {
     private final UserRepository userRepository;
 
     // 로그인 기능
-    public LoginResponse login(LoginRequest loginDto) {
-        User user = userRepository.findByLoginId(loginDto.getLoginId())
-                .filter(u -> u.getPassword().equals(loginDto.getPassword()))
+    public LoginResponse login(LoginRequest loginRequest) {
+        User user = userRepository.findByLoginId(loginRequest.getLoginId())
+                .filter(u -> u.getPassword().equals(loginRequest.getPassword()))
                 .orElseThrow(() -> new IllegalArgumentException("아이디 또는 비밀번호가 틀립니다."));
         
-        return new LoginResponse(user.getNickname());
+        return new LoginResponse(user.getId(), user.getNickname());
     }
 }
