@@ -11,8 +11,8 @@ import lombok.Getter;
 @AllArgsConstructor
 public class ListResponse {
     
-    private List<ListInfo> completes;   // 정산 완료
-    private List<ListInfo> incompletes; // 정산 미완료
+    private List<ListInfo> completeGroups;   // 정산 완료
+    private List<ListInfo> incompleteGroups; // 정산 미완료
 
     
     @Getter

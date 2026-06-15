@@ -11,13 +11,12 @@ import lombok.Getter;
 @AllArgsConstructor
 public class MemberResponse {
     
-    private List<SettlementInfo> completes;   // 정산 완료
-    private List<SettlementInfo> incompletes; // 정산 미완료
-
+    private List<MemberInfo> members;
     
+
     @Getter
     @AllArgsConstructor
-    public static class SettlementInfo {
+    public static class MemberInfo {
         private OffsetDateTime paidAt;         // 송금날짜
         private String         senderMemberId; // 참가멤버
         private BigDecimal     amount;         // 송금금액

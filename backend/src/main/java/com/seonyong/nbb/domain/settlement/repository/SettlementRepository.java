@@ -15,11 +15,13 @@ public interface SettlementRepository extends JpaRepository<Settlement, Long> {
     @Query("SELECT s FROM Settlement s " +
            "JOIN s.senderMemberId m " +
            "JOIN s.expenseId e " +
-           "JOIN FETCH m.groupId g " +
+           "JOIN FETCH m.groupId " +
            "WHERE e.mgrMemberId = :mgrMemberId " +
-           "AND m.groupId = :groupId ")
-    List<Settlement> findByGroupId(
+           "AND m.groupId.id = :groupId ")
+    List<Settlement> findBySettlement(
         @Param("groupId")UUID groupId,
         @Param("mgrMemberId")Long mgrMemberId
     );
+
+    List<Settlement> findByExpenseId(Long expenseId);
 }
