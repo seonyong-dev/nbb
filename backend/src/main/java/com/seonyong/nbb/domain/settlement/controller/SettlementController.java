@@ -13,7 +13,6 @@ import com.seonyong.nbb.domain.settlement.dto.response.ListResponse;
 import com.seonyong.nbb.domain.settlement.dto.response.MemberResponse;
 import com.seonyong.nbb.domain.settlement.service.SettlementService;
 import com.seonyong.nbb.global.common.SessionConst;
-import com.seonyong.nbb.global.entity.Settlement;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
