@@ -15,6 +15,6 @@ public interface PaidRepository extends JpaRepository<Settlement, Long> {
            "JOIN s.senderMemberId m " +
            "JOIN FETCH s.expenseId e " +
            "JOIN FETCH m.groupId " +
-           "WHERE s.senderMemberId = :memberId ")
-    List<Settlement> findBySettlement(@Param("memberId")Long memberId);
+           "WHERE m.id = :memberId ")
+    List<Settlement> findByPaid(@Param("memberId")Long memberId);
 }
