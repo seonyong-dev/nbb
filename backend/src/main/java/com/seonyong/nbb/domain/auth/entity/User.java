@@ -16,10 +16,10 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "users")
-@Getter // Getter 자동 생성
-@NoArgsConstructor(access = AccessLevel.PROTECTED) // JPA 필수 기본 생성자 안전하게 생성
-@AllArgsConstructor // 빌더나 편의용 전체 생성자
-@Builder // 코드 작성 속도를 획기적으로 올려주는 빌더 패턴
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
+@Builder
 public class User {
     
     @Id
