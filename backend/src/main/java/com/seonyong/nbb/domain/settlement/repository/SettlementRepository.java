@@ -12,16 +12,14 @@ import com.seonyong.nbb.global.entity.Settlement;
 
 public interface SettlementRepository extends JpaRepository<Settlement, Long> {
 
-    @Query("SELECT s FROM Settlement s " +
+    // 정산현황 리스트 불러오기
+    @Query("SELECT DISTINCT s FROM Settlement s " +
            "JOIN s.senderMemberId m " +
-           "JOIN s.expenseId e " +
+           "JOIN FETCH s.expenseId e " +
            "JOIN FETCH m.groupId " +
-           "WHERE e.mgrMemberId = :mgrMemberId " +
-           "AND m.groupId.id = :groupId ")
-    List<Settlement> findBySettlement(
-        @Param("groupId")UUID groupId,
-        @Param("mgrMemberId")Long mgrMemberId
-    );
+           "WHERE e.mgrMemberId = :memberId ")
+    List<Settlement> findBySettlement(@Param("memberId")Long memberId);
 
+    // 정산현황 멤버리스트 불러오기
     List<Settlement> findByExpenseId(Long expenseId);
 }
