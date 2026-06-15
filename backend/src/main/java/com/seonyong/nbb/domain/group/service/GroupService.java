@@ -38,7 +38,7 @@ public class GroupService {
     public GroupListResponse groupList(UUID id) {
         // 로그인 유저의 그룹리스트 전체조회
         List<GroupMember> allGroups = Objects.requireNonNull(
-            groupMemberRepository.findByMemberUserId(id), 
+            groupMemberRepository.findByGroupList(id), 
             "그룹 목록을 불러올 수 없습니다."
         );
 
