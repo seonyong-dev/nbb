@@ -13,7 +13,8 @@ import lombok.Getter;
 @AllArgsConstructor
 public class PaidResponse {
 
-    private List<PaidInfo> paidGroups; // 로그인한 유저의 송금현황 그룹
+    private List<PaidInfo> paidGroups;   // 송금한 그룹
+    private List<PaidInfo> noPaidGroups; // 송금 안한 그룹
 
     
     @Getter
