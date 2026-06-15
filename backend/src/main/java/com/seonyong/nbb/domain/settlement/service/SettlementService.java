@@ -10,6 +10,8 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.seonyong.nbb.domain.group.entity.GroupMember;
+import com.seonyong.nbb.domain.group.repository.GroupMemberRepository;
 import com.seonyong.nbb.domain.settlement.dto.response.ListResponse;
 import com.seonyong.nbb.domain.settlement.dto.response.MemberResponse;
 import com.seonyong.nbb.domain.settlement.repository.SettlementRepository;
@@ -23,11 +25,18 @@ import lombok.RequiredArgsConstructor;
 public class SettlementService {
     
     private final SettlementRepository settlementRepository;
+    private final GroupMemberRepository groupMemberRepository;
 
-    public ListResponse groupList(UUID groupId, Long mgrMemberId) {
+    public ListResponse groupList(UUID id) {
+        // 로그인 정보 가공
+        GroupMember member = groupMemberRepository.findByMemberUserId_id(id)
+            .orElseThrow(() -> new IllegalArgumentException("가입된 그룹 멤버 정보가 없습니다."));
+
+        Long memberId = member.getId();
+        
         // 전체 리스트 불러오기
         List<Settlement> allList = Objects.requireNonNull(
-            settlementRepository.findBySettlement(groupId, mgrMemberId),
+            settlementRepository.findBySettlement(memberId),
             "정산그룹을 불러올 수 없습니다."
         );
 
