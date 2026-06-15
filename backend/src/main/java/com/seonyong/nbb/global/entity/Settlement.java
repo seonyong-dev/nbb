@@ -1,9 +1,7 @@
-package com.seonyong.nbb.domain.settlement.entity;
+package com.seonyong.nbb.global.entity;
 
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.time.OffsetDateTime;
-import java.util.UUID;
 
 import com.seonyong.nbb.domain.group.entity.GroupExpense;
 import com.seonyong.nbb.domain.group.entity.GroupMember;
