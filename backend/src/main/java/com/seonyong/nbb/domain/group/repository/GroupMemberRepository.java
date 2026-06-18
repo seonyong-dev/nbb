@@ -30,6 +30,7 @@ public interface GroupMemberRepository extends JpaRepository<GroupMember, Long> 
     // 그룹멤버인지 확인
     Optional<GroupMember> findByMemberUserId_IdAndGroupId_Id(UUID id, UUID groupId);
 
+    // 정산멤버 등록 시 일반멤버ID
     @Query("SELECT m FROM GroupMember m " + 
            "JOIN m.memberUserId u " +
            "WHERE u.loginId = :loginId ")

@@ -47,6 +47,7 @@ public class GroupController {
         
         // 그룹리스트 불러오기
         GroupListResponse response = groupService.groupList(loginUserId);
+        if(response == null) return ResponseEntity.ok("그룹이 없습니다.");
 
         return ResponseEntity.ok(response);
     }
