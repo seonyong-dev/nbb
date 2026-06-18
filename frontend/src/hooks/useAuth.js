@@ -14,9 +14,7 @@ export function useAuth() {
   const navigate = useNavigate();
 
   // 아이디, 비밀번호 비어있는지 확인
-  const checkLogin = (e) => {
-    e.preventDefault();
-
+  const checkLogin = () => {
     setIdError('');
     setPasswordError('');
 
@@ -52,19 +50,23 @@ export function useAuth() {
       });
 
       if (response.ok) {
-        const data = await response.json();
-        console.log('로그인 성공 유저 정보:', data);
-
         navigate('/group-list');
       } else {
-        const errorMsg = await response.text();
-        setIdError(errorMsg || '로그인에 실패했습니다.');
-        passwordFocusRef.current.focus();
+        idFocusRef.current.focus();
+        alert('아이디 및 비밀번호를 확인해주세요.');
+        return;
       }
     } catch (error) {
       console.error('네트워크 에러:', error);
       setIdError('서버와 연결할 수 없습니다.');
     }
+  };
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    const isValid = checkLogin();
+    if (isValid) await login();
   };
 
   const idErrorHidden = (e) => {
@@ -84,8 +86,8 @@ export function useAuth() {
     passwordFocusRef,
     idError,
     passwordError,
-    checkLogin,
     idErrorHidden,
     passwordErrorHidden,
+    handleLogin,
   };
 }

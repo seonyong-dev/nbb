@@ -10,16 +10,16 @@ const Login = () => {
     passwordFocusRef,
     idError,
     passwordError,
-    checkLogin,
     idErrorHidden,
     passwordErrorHidden,
+    handleLogin,
   } = useAuth();
 
   return (
     <div className="d-flex justify-content-center align-items-center vh-100">
       <div className={styles.loginContainer}>
         <div className={styles.logo}>NBB</div>
-        <form onSubmit={checkLogin}>
+        <form onSubmit={handleLogin}>
           <div className="mb-3 text-start">
             <label htmlFor="id" className="form-label">
               아이디
