@@ -12,9 +12,9 @@ public interface PaidRepository extends JpaRepository<Settlement, Long> {
     
     // 송금현황 리스트 불러오기
     @Query("SELECT DISTINCT s FROM Settlement s " +
-           "JOIN s.senderMemberId m " +
+           "JOIN FETCH s.senderMemberId m " +
            "JOIN FETCH s.expenseId e " +
            "JOIN FETCH m.groupId " +
-           "WHERE m.id = :memberId ")
+           "WHERE m.memberUserId.id = :memberId ")
     List<Settlement> findByPaid(@Param("memberId")Long memberId);
 }

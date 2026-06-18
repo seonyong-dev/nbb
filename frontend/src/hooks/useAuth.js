@@ -20,7 +20,6 @@ export function useAuth() {
     setIdError('');
     setPasswordError('');
 
-    /* 최종 때 살릴 것
     if (id.trim() === '') {
       setIdError('아이디를 입력해주세요.');
       idFocusRef.current.focus();
@@ -32,11 +31,40 @@ export function useAuth() {
       passwordFocusRef.current.focus();
       return;
     }
-    */
 
-    // 백엔드 로그인 구현
+    return true;
+  };
 
-    navigate('/group-list');
+  // 로그인 백엔드 통신
+  const login = async () => {
+    try {
+      const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          loginId: id,
+          password: password,
+        }),
+        // 브라우저가 쿠키(세션ID)를 서버에 보내고 저장
+        credentials: 'include',
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log('로그인 성공 유저 정보:', data);
+
+        navigate('/group-list');
+      } else {
+        const errorMsg = await response.text();
+        setIdError(errorMsg || '로그인에 실패했습니다.');
+        passwordFocusRef.current.focus();
+      }
+    } catch (error) {
+      console.error('네트워크 에러:', error);
+      setIdError('서버와 연결할 수 없습니다.');
+    }
   };
 
   const idErrorHidden = (e) => {

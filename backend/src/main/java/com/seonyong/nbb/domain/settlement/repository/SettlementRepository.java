@@ -13,12 +13,12 @@ public interface SettlementRepository extends JpaRepository<Settlement, Long> {
 
     // 정산현황 리스트 불러오기
     @Query("SELECT DISTINCT s FROM Settlement s " +
-           "JOIN s.senderMemberId m " +
+           "JOIN FETCH s.senderMemberId m " +
            "JOIN FETCH s.expenseId e " +
            "JOIN FETCH m.groupId " +
-           "WHERE e.mgrMemberId = :memberId ")
+           "WHERE e.mgrMemberId.id = :memberId ")
     List<Settlement> findBySettlement(@Param("memberId")Long memberId);
 
     // 정산현황 멤버리스트 불러오기
-    List<Settlement> findByExpenseId(Long expenseId);
+    List<Settlement> findByExpenseId_Id(Long expenseId);
 }

@@ -3,6 +3,8 @@ package com.seonyong.nbb.domain.auth.entity;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -37,6 +39,7 @@ public class User {
     private String nickname;
 
     @Column(name = "create_at", nullable = false, updatable = false)
+    @CreationTimestamp
     private OffsetDateTime creatAt;
 
     @Column(name="is_withdrawn")    

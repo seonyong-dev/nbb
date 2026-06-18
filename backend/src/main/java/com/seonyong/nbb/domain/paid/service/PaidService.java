@@ -28,7 +28,7 @@ public class PaidService {
 
     public PaidResponse paidList(UUID id) {
         // 로그인 정보 가공
-        GroupMember member = groupMemberRepository.findByMemberUserId_id(id)
+        GroupMember member = groupMemberRepository.findByMemberUserId_Id(id)
             .orElseThrow(() -> new IllegalArgumentException("가입된 그룹 멤버 정보가 없습니다."));
 
         Long memberId = member.getId();

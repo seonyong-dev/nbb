@@ -115,7 +115,7 @@ public class GroupService {
     public void createExpense(ExpenseCreateRequest request, UUID id, UUID groupId) {
         
         // 그룹 멤버인지 확인
-        GroupMember groupMember = groupMemberRepository.findByMemberUserIdANDGroupId(id, groupId)
+        GroupMember groupMember = groupMemberRepository.findByMemberUserId_IdAndGroupId_Id(id, groupId)
                 .orElseThrow(() -> new IllegalArgumentException("해당 그룹의 멤버가 아닙니다."));
 
         

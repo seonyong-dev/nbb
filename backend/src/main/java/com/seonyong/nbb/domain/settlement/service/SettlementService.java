@@ -29,7 +29,7 @@ public class SettlementService {
 
     public ListResponse groupList(UUID id) {
         // 로그인 정보 가공
-        GroupMember member = groupMemberRepository.findByMemberUserId_id(id)
+        GroupMember member = groupMemberRepository.findByMemberUserId_Id(id)
             .orElseThrow(() -> new IllegalArgumentException("가입된 그룹 멤버 정보가 없습니다."));
 
         Long memberId = member.getId();
@@ -77,7 +77,7 @@ public class SettlementService {
     public MemberResponse memberList(Long expenseId) {
         // 정산에 참가한 멤버 불러오기
         List<Settlement> expenses = Objects.requireNonNull(
-            settlementRepository.findByExpenseId(expenseId),
+            settlementRepository.findByExpenseId_Id(expenseId),
             "정산멤버를 불러올 수 없습니다.");
 
         List<MemberResponse.MemberInfo> members = expenses.stream()

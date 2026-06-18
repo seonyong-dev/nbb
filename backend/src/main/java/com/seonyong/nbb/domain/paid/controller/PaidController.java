@@ -5,15 +5,11 @@ import java.util.UUID;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.seonyong.nbb.domain.paid.dto.response.PaidResponse;
 import com.seonyong.nbb.domain.paid.service.PaidService;
-import com.seonyong.nbb.domain.settlement.dto.response.ListResponse;
-import com.seonyong.nbb.domain.settlement.dto.response.MemberResponse;
-import com.seonyong.nbb.domain.settlement.service.SettlementService;
 import com.seonyong.nbb.global.common.SessionConst;
 
 import jakarta.servlet.http.HttpServletRequest;
