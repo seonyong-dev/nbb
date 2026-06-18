@@ -1,5 +1,7 @@
 package com.seonyong.nbb.domain.group.service;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
@@ -21,6 +23,8 @@ import com.seonyong.nbb.domain.group.entity.GroupMember;
 import com.seonyong.nbb.domain.group.repository.GroupExpenseRepository;
 import com.seonyong.nbb.domain.group.repository.GroupMemberRepository;
 import com.seonyong.nbb.domain.group.repository.GroupRepository;
+import com.seonyong.nbb.domain.settlement.repository.SettlementRepository;
+import com.seonyong.nbb.global.entity.Settlement;
 
 import lombok.RequiredArgsConstructor;
 
@@ -33,6 +37,7 @@ public class GroupService {
     private final GroupRepository groupRepository;
     private final GroupMemberRepository groupMemberRepository;
     private final GroupExpenseRepository groupExpenseRepository;
+    private final SettlementRepository settlementRepository;
 
     // GroupList의 리스트 불러오기
     public GroupListResponse groupList(UUID id) {
@@ -104,7 +109,7 @@ public class GroupService {
                         .memberUserId(member)
                         .role("01")
                         .build(),
-                    "초대 멤버 객체 생성에 실패했씁니다."
+                    "초대 멤버 객체 생성에 실패했습니다."
                 ));
             }
         }
@@ -120,12 +125,12 @@ public class GroupService {
 
         
         // 총무인지 확인
-        if (groupMember.getRole() != "02") { 
+        if (!"02".equals(groupMember.getRole())) { 
             throw new IllegalStateException("총무만 정산을 등록할 수 있습니다.");
         }
 
         // 정산 등록
-        groupExpenseRepository.save(Objects.requireNonNull(
+        GroupExpense savedExpense = groupExpenseRepository.save(Objects.requireNonNull(
             GroupExpense.builder()
                 .title(request.getTitle())
                 .totalAmount(request.getTotalAmount())
@@ -133,6 +138,36 @@ public class GroupService {
                 .build(),
                 "정산 등록에 실패했습니다."
             ));
+
+        /* 송금금액 구하는 로직 start */
+        int totalMemerCnt = request.getMembers().size() + 1;
+        BigDecimal totalAmount = request.getTotalAmount();
+
+        if (totalMemerCnt <= 1) throw new IllegalArgumentException("정산할 멤버가 1명 이상 있어야 합니다.");
+        
+        // 총무 포함한 정산 금액
+        BigDecimal baseAmount = totalAmount.divide(BigDecimal.valueOf(totalMemerCnt), 0, RoundingMode.DOWN);
+        /* 송금금액 구하는 로직 end */
+
+        // 지정한 정산 멤버 등록
+        if (request.getMembers() != null) {
+            for (ExpenseCreateRequest.MemberInfo info : request.getMembers()) {
+                String loginId = info.getLoginId();
+                if (loginId == null) continue;
+
+                GroupMember member = groupMemberRepository.findById(Objects.requireNonNull(loginId))
+                .orElseThrow(() -> new IllegalArgumentException("멤버를 찾을 수 없습니다."));
+
+                settlementRepository.save(Objects.requireNonNull(
+                    Settlement.builder()
+                        .senderMemberId(member)
+                        .expenseId(savedExpense)
+                        .amount(baseAmount)
+                        .build(),
+                    "초대 멤버 객체 생성에 실패했습니다."
+                ));
+            }
+        }
     }
 
     // GroupInside의 정산리스트 불러오기
