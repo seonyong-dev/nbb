@@ -1,7 +1,7 @@
 
 # ➗NBB(N빵): 모임 정산 및 가상 계좌 시스템
 
-[📝일별 개발일지 (notion 보러가기)](https://chip-fifth-153.notion.site/NBB-Personal-Project-3836564d4062807a8406e903c55d7992?source=copy_link)
+<a href="https://chip-fifth-153.notion.site/NBB-Personal-Project-3836564d4062807a8406e903c55d7992?source=copy_link" target="_blank" rel="noopener noreferrer">📝일별 개발일지 (Notion)</a>
 
 <br/><br/>
 
