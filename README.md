@@ -4,7 +4,7 @@
 
 [📝일별 개발일지 (notion 보러가기)](https://chip-fifth-153.notion.site/NBB-Personal-Project-3836564d4062807a8406e903c55d7992?source=copy_link)
 
-<br/>
+<br/><br/><br/>
 
 ## 📅기간
 
@@ -27,7 +27,7 @@
 
 <!------- 주제 시작 -------->
 
-## 📑주제
+## 1. 📑주제
 
 <a name="subject"></a>
 
